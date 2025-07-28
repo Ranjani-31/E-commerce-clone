@@ -89,11 +89,11 @@ const mongoose= require('mongoose')
 
  const deleteProduct = async (req, res)=>{
     const {id}  = req.params 
-    const sellerId = req.userId
-
+    const sellerId =req.userId
+    console.log(sellerId)
 
     try{
-        const existingProduct = await Product.findOne({id, sellerId})
+        const existingProduct = await Product.findOne({_id:id, seller: sellerId})
         if (!existingProduct){
             return res.status(400).json({message: 'Delete your existing product only'})
         }
@@ -103,7 +103,7 @@ const mongoose= require('mongoose')
 
     }catch(err){
         res.status(400).json({message: err.message})
-    }
+    } 
 }
 
  const updateProduct = async (req, res)=>{

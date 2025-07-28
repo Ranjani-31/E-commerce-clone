@@ -2,7 +2,7 @@
 
 const Category = require('../models/category')
 
-export const addCategory = async (req, res)=>{
+ const addCategory = async (req, res)=>{
  
     
     const {category} = req.body 
@@ -22,7 +22,7 @@ export const addCategory = async (req, res)=>{
     }
 }
 
-export const getCategories = async (req, res)=>{
+ const getCategories = async (req, res)=>{
 
     try{
         const result = await Category.find()
@@ -40,3 +40,4 @@ export const getCategories = async (req, res)=>{
         })
     }
 }
+module.exports = {addCategory, getCategories}

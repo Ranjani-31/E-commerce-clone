@@ -1,6 +1,6 @@
 const Review =  require('../models/review')
  
-export const addReview= async (req, res)=> {
+ const addReview= async (req, res)=> {
     
     const userId = req.userId 
     const {productId, rating, comment} = req.body
@@ -28,7 +28,7 @@ export const addReview= async (req, res)=> {
 
 }
 
-export const getReviews = async (req,res)=>{
+ const getReviews = async (req,res)=>{
     const {productId} = req.params
 
     try{
@@ -46,3 +46,7 @@ export const getReviews = async (req,res)=>{
         res.status(400).json({message: err.message})
   }
 }
+
+
+
+module.exports = {addReview, getReviews}

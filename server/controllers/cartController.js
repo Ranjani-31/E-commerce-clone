@@ -2,7 +2,7 @@
 const Cart=require('../models/cartItems')
 
 // get all cart products 
-export const cartProducts=async (req,res)=>{
+ const cartProducts=async (req,res)=>{
     const id = req.userId
 
     try{
@@ -17,9 +17,12 @@ export const cartProducts=async (req,res)=>{
             displayPercent: (item.productId?.discount / item.productId?.price)*100,
             displayPrice: item.productId?.price-item.productId?.discount,
             description: item.productId.description,
-            stock: item.productId.stock
+            quantity: item.quantiy
             
         })),
+        totalCost: result.reduce((accu, item)=>{
+            return acc+(item.productId.price - item.productId.discount)*item.quantity
+        }, 0)
         
     })
 
@@ -30,7 +33,7 @@ export const cartProducts=async (req,res)=>{
 
 }
 
-export const newProduct = async (req,res)=>{
+ const newProduct = async (req,res)=>{
 
     const {productId,quantity}=req.body
     const userId = req.userId
@@ -68,7 +71,7 @@ export const newProduct = async (req,res)=>{
     }
 }
 
-export const removeItem = async  (req, res)=>{
+ const removeItem = async  (req, res)=>{
     const {id} = req.params
     try{
         await Cart.findByIdAndDelete(id)
@@ -78,3 +81,5 @@ export const removeItem = async  (req, res)=>{
         res.status(400).json({message: err.message}) 
     }
 }
+
+module.exports  = {cartProducts, newProduct, removeItem}

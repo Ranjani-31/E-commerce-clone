@@ -4,7 +4,6 @@ require('dotenv').config()
 const auth= (req, res, next)=>{
 
     const authHeader=req.headers['authorization']
-console.log(authHeader)
    if (!authHeader || !authHeader.startsWith('Bearer ')) {
   throw new Error('No token provided');
 }
@@ -16,7 +15,7 @@ const jwtToken = authHeader.split(' ')[1];
         }else{
             req.userId=payload.userId 
             next() 
- c       }
+       }
     })
 
 }
