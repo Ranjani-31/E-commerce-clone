@@ -21,7 +21,7 @@ const Cart=require('../models/cartItems')
             
         })),
         totalCost: result.reduce((accu, item)=>{
-            return acc+(item.productId.price - item.productId.discount)*item.quantity
+            return accu+(item.productId.price - item.productId.discount)*item.quantity
         }, 0)
         
     })

@@ -59,15 +59,16 @@ const mongoose= require('mongoose')
  const createProduct = async(req, res)=>{
     
     const {name, price, description,  stock, category} = req.body
-    const sellerId = req.userId
+    const seller = req.userId
     try{
         const newProduct = new Product({
                 name,
                 description,
                 price,
-                sellerId,
+                seller,
                 stock,
-                category
+                category,
+                
             })
             const result=await newProduct.save()
 
@@ -77,7 +78,7 @@ const mongoose= require('mongoose')
                 description: result.description,
                 price: result.price,  
                 stock: result.stock,
-                ctegory: result.category
+                category: result.category
             })
 
     }catch(err){
@@ -90,7 +91,7 @@ const mongoose= require('mongoose')
  const deleteProduct = async (req, res)=>{
     const {id}  = req.params 
     const sellerId =req.userId
-    console.log(sellerId)
+    
 
     try{
         const existingProduct = await Product.findOne({_id:id, seller: sellerId})
@@ -111,10 +112,9 @@ const mongoose= require('mongoose')
     
     const {name, price, description, discount, stock}=req.body
     const seller = req.userId
-    console.log(seller)
-
+   
     try{
-         const existingProduct = await Product.findOne({_id: id, seller: new mongoose.Types.ObjectId(seller)})
+         const existingProduct = await Product.findOne({_id: id, seller: seller})
          console.log(existingProduct)
         if (!existingProduct){
             return res.status(400).json({message: 'Update your existing product only'})

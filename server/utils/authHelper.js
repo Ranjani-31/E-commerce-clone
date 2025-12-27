@@ -16,6 +16,6 @@ require('dotenv').config()
 
     const token = await jwt.sign(payload, process.env.JWT_KEY, {expiresIn:'10d'})
     return token;
-}
+} 
 
 module.exports = {passwordHashing, passwordUnhashing, jwtTokenGenerator}
