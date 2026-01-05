@@ -1,0 +1,13 @@
+
+    .category-img {
+    width: 40%;
+    object-fit: cover;
+}
+.category-container{
+    list-style:none;
+    display:flex;
+    justify-content: space-evenly;   
+    align-items: end;   
+    overflow-x: auto;
+}
+

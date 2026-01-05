@@ -8,7 +8,7 @@ const mongoose= require('mongoose')
     
     const skip=(page-1)*limit 
     try{
-    const products= await Product.find().limit(limit).skip(skip)
+    const products= await Product.find({}).limit(limit).skip(skip)
         res.status(200).json({
             currentPage: page,
             pageSize: limit,
@@ -19,6 +19,8 @@ const mongoose= require('mongoose')
     }
     
 }
+
+
 // both can acesss
 
  const getProduct = async (req, res)=>{
@@ -52,6 +54,17 @@ const mongoose= require('mongoose')
         res.status(400).json({message: err.message, name: err.name})
     }
 }
+
+exports.viewIncrement =async function(req, res){
+    const {id} = req.params 
+    try{
+        Product.updateOne({_id, id},{$inc:views+1})
+    }catch(err){
+
+    }
+
+}
+
 
 //to get similar products
 // access only for sellers

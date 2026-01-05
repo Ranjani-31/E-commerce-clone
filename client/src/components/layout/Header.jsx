@@ -35,17 +35,19 @@ function Header(){
             My Profile
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">user</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
             <li><a class="dropdown-item" href="#">Wishlist</a></li>
             <li><a class="dropdown-item" href="#">Orders</a></li>
 
-            <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="#">Theme</a></li>
+            <li><hr class="dropdown-divider" /></li>
+
+             <li class="nav-item">
+          <a class="nav-link " >Logout</a>
+        </li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Logout</a>
-        </li>
+       
       </ul>
      
     </div>

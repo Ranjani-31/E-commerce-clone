@@ -42,6 +42,10 @@ const productSchema = mongoose.Schema({
         type: Number,
         required: true,
         default: 1
+     },
+     views:{
+        type: Number,
+        default:0
      }
 
 })
