@@ -1,107 +1,143 @@
-# Shopora 
- Shopora is a full-featured e-commerce webapplication built using MERN stack.
- The platform enables users to browse products, manage carts, place orders, and securely complete purchases, while providing admins with product and order management capabilities.
+# Shop-Now 
+## Overview
 
- ## 📌 Overview
+Shop-Now is a full-stack e-commerce platform designed to simulate real-world online retail systems.
+The project focuses on clean architecture, secure APIs, scalable data modeling, and production-ready patterns, rather than just UI replication.
 
-This project demonstrates the implementation of a real-world E-commerce system with authentication, authorization, product management, cart handling, order processing, and responsive UI design.
-The focus is on clean architecture, scalability, and professional frontend & backend practices.
+It supports both customer-facing commerce flows and admin-level product management, making it suitable as a real business foundation.
 
-## 👤 User Features
 
-- User registration and login (JWT authentication)
+## Key Features
 
-- Browse products by category
+- Realistic order lifecycles
 
-- Product search and filtering
+- Secure authentication and authorization
 
-- Product details page
+- Modular backend architecture
 
-- Add to cart / remove from cart
+- Scalable product querying and filtering
 
-- Quantity management
+## User Features
 
-- Secure checkout process
+- User authentication and authorization
 
-- Order history tracking
+- Product browsing with search, filter, and sorting
 
-##  Cart & Orders
+- Cart management and checkout flow
 
-- Persistent cart (database/session based)
+- Order placement and order history
 
-- Price calculation (subtotal, tax, total)
+- Secure API access using JWT
 
-- Order placement
+## Admin Features
 
-- Order status tracking (Pending, Shipped, Delivered)
+- Product creation and inventory management
 
-## 🛠 Admin Features
+- Order status management
 
-- Admin authentication
+- Role-based access control (Admin vs User)
 
-- Add / update / delete products
+- Dashboard-ready API endpoints
 
-- Manage categories
+## System Architecture
 
-- View and manage orders
+### Frontend
 
-- Update order status
+- Component-driven UI
 
-- User management (optional)
+- Centralized state management
 
-  ## 🎨 UI & UX
+- API-driven rendering
 
-- Fully responsive design
-
-- Clean product grid layout
-
-- Loading states & error handling
-
-- Toast notifications
-
-- Optimized navigation flow
-
-## ⚙️ Installation & Setup
-### 1️⃣ Clone the Repository
-    git clone https://github.com/your-username/ecommerce-mern.git
-### 2️⃣ Install Backend Dependencies
-    cd server
-    npm install
-    npm start
-
-### 3️⃣ Install Frontend Dependencies
-    cd client
-    npm install
-    npm run dev
-
-## 🔑 Environment Variables
-
-Create a .env file in the server directory:
-    
-    PORT=5000
-    MONGO_URI=your_mongodb_connection
-    JWT_SECRET=your_secret_key
-
-### 🔐 Authentication & Security
-
-- Passwords are hashed using bcrypt
-
-- JWT tokens used for secure authentication
-
-- Protected routes for users and admins
-
-- Role-based authorization
-
- - Key Concepts Implemented
+### Backend
 
 - RESTful API design
 
-- MVC backend architecture
+- Layered architecture (Controller → Service → Repository)
 
-- Protected routes in React
+- Stateless authentication using JWT
 
-- Global state management (Redux)
+- Centralized error handling and validation
 
-- Secure authentication & authorization
+### Database
 
-- Scalable database schema
+- Normalized schema design
+
+- Indexed queries for performance
+
+- Relational integrity between users, products, orders
+
+## Tech Stack
+
+### Frontend
+
+- React.js
+
+- HTML5, CSS3
+
+- JavaScript (ES6+)
+
+### Backend
+
+- Node.js
+
+- Express.js
+
+### Database
+
+- MongoDB
+
+- Mongoose ODM
+
+- Authentication
+
+- JWT-based authentication
+
+- Role-based authorization
+
+### API Design (High-level)
+
+    POST /auth/register
+    
+    POST /auth/login
+    
+    GET /products
+    
+    GET /products/:id
+    
+    POST /orders
+    
+    GET /orders/user
+    
+    POST /admin/products
+    
+    PUT /admin/orders/:id
+
+**All APIs follow:**
+
+- Proper HTTP status codes
+
+- Input validation
+
+- Secure access control
+
+## Security Considerations
+
+- Password hashing using industry standards
+
+- JWT expiration and verification
+
+- Protected routes for admin actions
+
+- Input sanitization to prevent injection attacks
+
+- Performance & Scalability
+
+- Indexed queries for frequently accessed fields
+
+- Pagination for large product datasets
+
+- Stateless backend to support horizontal scaling
+
+- Separation of concerns for maintainability
+
