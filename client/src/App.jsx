@@ -1,17 +1,23 @@
-import {Router, Routes, Route} from "react-dom"
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 
-import Home from "../src/pages/Home"
-import Login from "../src/pages/Login"
+import Home from "./pages/Home"
+import Login from "./pages/Login"
+import ProductListing from "./pages/ProductListing"
+import ProductView from './pages/ProductView'
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
         <Route path = '/' element={<Home />}/>
         <Route path = '/login' element={<Login />}/>
 
+        <Route path = '/ProductListing' element={<ProductListing />}/>
+        <Route path = '/ProductView' element={<ProductView />}/>
+
+
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 

@@ -46,6 +46,21 @@ const productSchema = mongoose.Schema({
      views:{
         type: Number,
         default:0
+     },
+     purchaseCount:{
+        type: Number,
+        default:0
+     },
+     imageUrl:{
+        public_id:{
+ type:String,
+        required:true
+        },
+        secure_url: {
+ type:String,
+        required:true
+        }
+       
      }
 
 })

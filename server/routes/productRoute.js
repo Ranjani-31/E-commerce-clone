@@ -2,10 +2,11 @@ const route = require('express').Router()
 const product=require('../controllers/productController')
 const auth= require("../middleware/authMiddleware")
 const category = require("../controllers/categoryController")
+const upload = require("../middleware/multer")
 
 route.get("/products", product.getProducts);
 route.get("/product/:id", product.getProduct);
-route.post("/newProduct",auth, product.createProduct);
+route.post("/newProduct",auth,upload.single('image'), product.createProduct);
 route.delete("/deleteProduct/:id", auth, product.deleteProduct);
 route.put("/updateProduct/:id",auth, product.updateProduct);
 route.post('/addCategory', auth, category.addCategory)
