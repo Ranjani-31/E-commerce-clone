@@ -67,33 +67,7 @@ It supports both customer-facing commerce flows and admin-level product manageme
 
 - Relational integrity between users, products, orders
 
-## Tech Stack
 
-### Frontend
-
-- React.js
-
-- HTML5, CSS3
-
-- JavaScript (ES6+)
-
-### Backend
-
-- Node.js
-
-- Express.js
-
-### Database
-
-- MongoDB
-
-- Mongoose ODM
-
-- Authentication
-
-- JWT-based authentication
-
-- Role-based authorization
 
 ### API Design (High-level)
 
@@ -141,3 +115,43 @@ It supports both customer-facing commerce flows and admin-level product manageme
 
 - Separation of concerns for maintainability
 
+## Tech Stack
+
+### Frontend
+
+- React.js
+
+- HTML5, CSS3
+
+- JavaScript (ES6+)
+
+### Backend
+
+- Node.js
+
+- Express.js
+
+### Database
+
+- MongoDB
+
+- Mongoose ODM
+
+- Authentication
+
+- JWT-based authentication
+
+- Role-based authorization
+
+### ENV 
+**Backend**
+
+            URI=MONGODB_URL
+            JWT_KEY=JWT_SECRET
+            JWT_EXPIRES_IN=7d
+            COOKIE_SECURE=false
+            PORT=5000
+            CLOUDINARY_API_KEY=
+            CLOUDINARY_CLOUD_NAME=
+            CLOUDINARY_API_SECRET=
+            CLUDINARY_URL=CLOUDINARY_URL=
